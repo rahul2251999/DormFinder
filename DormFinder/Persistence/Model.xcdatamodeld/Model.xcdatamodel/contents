@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22000" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="false" userDefinedModelVersionIdentifier="">
+    <entity name="CachedListing" representedClassName="CachedListing" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <attribute name="summary" attributeType="String"/>
+        <attribute name="pricePerMonth" attributeType="Decimal" defaultValueString="0"/>
+        <attribute name="currencyCode" attributeType="String" defaultValueString="USD"/>
+        <attribute name="roomType" attributeType="String"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="address" attributeType="String"/>
+        <attribute name="distanceToCampusMeters" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="amenitiesData" attributeType="Binary"/>
+        <attribute name="photoURLsData" attributeType="Binary"/>
+        <attribute name="isAvailable" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="availableFrom" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="rating" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="updatedAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastSyncedAt" attributeType="Date" usesScalarValueType="NO"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="CachedBooking" representedClassName="CachedBooking" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="listingID" attributeType="String"/>
+        <attribute name="listingTitle" attributeType="String"/>
+        <attribute name="userID" attributeType="String"/>
+        <attribute name="checkIn" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="checkOut" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="totalPrice" attributeType="Decimal" defaultValueString="0"/>
+        <attribute name="currencyCode" attributeType="String" defaultValueString="USD"/>
+        <attribute name="status" attributeType="String" defaultValueString="pending"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="version" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="syncState" attributeType="String" defaultValueString="synced"/>
+        <attribute name="isPendingDeletion" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="localUpdatedAt" attributeType="Date" usesScalarValueType="NO"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <elements>
+        <element name="CachedListing" positionX="-63" positionY="-18" width="128" height="299"/>
+        <element name="CachedBooking" positionX="36" positionY="54" width="128" height="269"/>
+    </elements>
+</model>
