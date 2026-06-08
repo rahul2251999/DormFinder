@@ -47,6 +47,7 @@ final class MyBookingsViewModel: ObservableObject {
         do {
             try await syncManager.cancelBooking(id: booking.id)
             bookings = syncManager.cachedBookings()
+            loadState = bookings.isEmpty ? .empty : .loaded
         } catch {
             cancellationError = "Couldn't cancel right now — it'll be retried automatically."
         }
