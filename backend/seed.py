@@ -6,7 +6,7 @@ Usage:
 import asyncio
 from datetime import date
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 
 from app.database import Base, async_session_factory, engine
 from app.models import Listing
@@ -78,9 +78,9 @@ async def seed() -> None:
         await conn.run_sync(Base.metadata.create_all)
 
     async with async_session_factory() as session:
-        existing = await session.scalar(select(Listing).limit(1))
-        if existing is not None:
-            print("Listings already exist — skipping seed.")
+        existing_count = await session.scalar(select(func.count()).select_from(Listing))
+        if existing_count:
+            print(f"{existing_count} listings already exist; skipping seed.")
             return
 
         for data in SAMPLE_LISTINGS:
