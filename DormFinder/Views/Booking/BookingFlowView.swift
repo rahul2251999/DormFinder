@@ -56,10 +56,14 @@ struct BookingFlowView: View {
         return nil
     }
 
+    private var nightCountDescription: String {
+        "\(viewModel.nightCount) night\(viewModel.nightCount == 1 ? "" : "s")"
+    }
+
     private var summaryRow: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("\(viewModel.nightCount) night\(viewModel.nightCount == 1 ? "" : "s")")
+                Text(nightCountDescription)
                     .font(.subheadline)
                 Text("Estimated total")
                     .font(.caption)
@@ -70,7 +74,7 @@ struct BookingFlowView: View {
                 .font(.title3.bold())
         }
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(viewModel.nightCount) nights, estimated total \(viewModel.formattedEstimatedTotal)")
+        .accessibilityLabel("\(nightCountDescription), estimated total \(viewModel.formattedEstimatedTotal)")
     }
 
     private var submitButton: some View {
